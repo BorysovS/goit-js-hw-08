@@ -8,7 +8,7 @@ const formUserData = {};
 const STORAGE_KEY = "feedback-form-state"
 
 feedBackForm.addEventListener('submit', onSubmit);
-feedBackForm.addEventListener('input', onInputUserData);
+feedBackForm.addEventListener('input', throttle(onInputUserData, 500));
 
 onGetDataUserInput()
 
