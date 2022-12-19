@@ -22,7 +22,7 @@ function onSubmit(evt) {
 }
 
 function onInputUserData(evt) {
-    formUserData[evt.target.name] = evt.target.value;
+    formUserData[evt.target.name] = evt.target.value || '';
     const formUserDataJSON = JSON.stringify(formUserData);
     localStorage.setItem('STORAGE_KEY', formUserDataJSON)
 };
@@ -30,6 +30,8 @@ function onInputUserData(evt) {
 function onGetDataUserInput() {
     
     const saveDataUser = JSON.parse(localStorage.getItem('STORAGE_KEY'));
+    formUserData.email = saveDataUser.email;
+    formUserData.message = saveDataUser.message;
      
     if (saveDataUser) { 
         formInput.value = saveDataUser.email ?? '';
